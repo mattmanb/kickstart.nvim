@@ -208,6 +208,17 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Remap explore
 vim.keymap.set('n', '<leader>e', ':Ex<CR>', { noremap = true })
 
+-- Remapping save to ctrl + s
+-- Normal mode
+vim.keymap.set('n', '<C-s>', ':w<CR>', { noremap = true })
+
+-- Insert mode
+vim.keymap.set('i', '<C-s>', '<Esc>:w<CR>a', { noremap = true })
+
+-- Make tabs 2 spaces
+vim.opt.shiftwidth = 2
+vim.opt.tabstop = 2
+
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
 
@@ -949,7 +960,7 @@ require('lazy').setup({
     main = 'nvim-treesitter.configs', -- Sets main module to use for opts
     -- [[ Configure Treesitter ]] See `:help nvim-treesitter`
     opts = {
-      ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
+      ensure_installed = { 'bash', 'c', 'cpp', 'diff', 'html', 'lua', 'luadoc', 'markdown', 'markdown_inline', 'query', 'vim', 'vimdoc' },
       -- Autoinstall languages that are not installed
       auto_install = true,
       highlight = {
